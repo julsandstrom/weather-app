@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Navbar() {
   return (
     <header className="d-flex justify-content-between align-items-center p-3 px-md-4 bg-light border-bottom box-shadow">
@@ -20,12 +22,9 @@ function Navbar() {
       </div>
     
       <nav className="my-2 my-md-0">
-        <a className="cool-link" href="http://localhost:3000/second.html" target="_blank"  rel="noopener noreferrer">About Us</a> 
-        <a className="cool-link" href="https://www.youtube.com/watch?v=NCfMPD5A6hQ" target="_blank" 
-          rel="noopener noreferrer">Stockholm (Live)</a>
-        <a className="cool-link" href="https://www.youtube.com/watch?v=AqkYfZl4vkA" target="_blank" 
-          rel="noopener noreferrer">Gothenburg (Live)</a>
-      </nav>
+  <a className="cool-link" href="https://www.youtube.com/watch?v=NCfMPD5A6hQ" target="_blank" rel="noopener noreferrer">Stockholm (Live)</a>
+  <a className="cool-link" href="https://www.youtube.com/watch?v=AqkYfZl4vkA" target="_blank" rel="noopener noreferrer">Gothenburg (Live)</a>
+</nav>
     </header>
   );
 }

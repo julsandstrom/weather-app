@@ -11,6 +11,17 @@ html, body {
   padding: 0;
   text-align: center;
 }
+.current-info{
+    width: 330px;
+    text-align: center;
+    border: 2px solid #ccc;
+    padding-top: 12px;
+    box-shadow: 3px 3px 10px rgba(   0.2);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    margin-left: 120px;
+
+}
 .cool-link {
   display: inline-block;
   padding: 10px 20px;

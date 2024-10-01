@@ -11,4 +11,11 @@ function App() {
   );
 }
 
+//  App             
+//  ├──Navbar   
+//  |                                                     ├──WeatherDetails
+//  ├─BootstrapLayout────WeatherDisplay────CurrentWeather──├───Loading                       
+//  |       ├──SearchForm──UserLocation                   ├──WeatherHeader
+//  |                                         
+  
 export default App;

@@ -4,20 +4,11 @@ import WeatherDisplay from "./WeatherDisplay";
 import icon from './icon.png';
 
 function BootstrapLayout() {
-  // State to track if weather information should be shown
   const [showWeather, setShowWeather] = useState(false);
-
-  // State to store the city name input by the user
   const [cityName, setCityName] = useState('');
-
-  // State to remember if the user has opted to save their city name
   const [rememberCity, setRememberCity] = useState(false);
-
-  // State to store favorite cities (max 2)
   const [favoriteCities, setFavoriteCities] = useState([]);
 
-  // useEffect hook runs once when the component mounts
-  // It checks if a city was remembered in localStorage and loads favorite cities
   useEffect(() => {
     const savedCity = localStorage.getItem("rememberedCity");
     if (savedCity) {
@@ -26,27 +17,24 @@ function BootstrapLayout() {
     }
 
     const storedFavorites = JSON.parse(localStorage.getItem("favoriteCities")) || [];
-    setFavoriteCities(storedFavorites.slice(0, 2)); // Load favorite cities (limit to 2)
-  }, []); // Empty array means this effect runs only once after the initial render
+    setFavoriteCities(storedFavorites.slice(0, 2)); //updates the state, new array with only 2 cities to setFavoriteCities
+  }, []); 
 
-  // Updated handleSubmit function to prevent duplicate cities
+ 
   const handleSubmit = (e) => {
     e.preventDefault(); 
 
-    // Store or remove the city name in localStorage based on the checkbox status
     if (rememberCity) {
       localStorage.setItem('rememberedCity', cityName);
     } else {
       localStorage.removeItem('rememberedCity');
     }
 
-    // Add city to favorites if checked and not already in the list
+    
     if (rememberCity && cityName) {
       let updatedFavorites = [...favoriteCities];
 
-      // Check if the city is already in the list before adding
       if (!updatedFavorites.includes(cityName)) {
-        // If 2 cities are already stored, remove the first (oldest)
         if (updatedFavorites.length >= 2) {
           updatedFavorites.shift();
         }
@@ -61,7 +49,7 @@ function BootstrapLayout() {
     setShowWeather(true);
   };
 
-  // Function to handle new search and reset the form
+  // New search and reset the form
   const newSearch = () => {
     setShowWeather(false); 
     if (!rememberCity) {

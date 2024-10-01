@@ -17,18 +17,7 @@ function WeatherDetails({ dailyWeather, currentWeather, weatherCode }) {
   }
 
   return (
-    <div
-      style={{
-        width: '330px',
-        textAlign: "center",
-        border: '2px solid #ccc',
-        paddingTop: '12px',
-        boxShadow: '3px 3px 10px rgba(0, 0, 0, 0.2)',
-        borderRadius: '12px',
-        marginBottom: '20px',
-        marginLeft: '120px'
-      }}
-    >
+    <div className="current-info">
       <p>
         <span style={{ color: 'red' }}>Low: {dailyWeather.temperature_2m_min[0]} °C</span> |
         <span style={{ color: 'green' }}> High: {dailyWeather.temperature_2m_max[0]} °C</span>

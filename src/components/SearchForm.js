@@ -1,5 +1,6 @@
 import React from 'react';
 import UserLocation from './UserLocation';
+import './SearchForm.css';
 
 function SearchForm({ cityName, setCityName, rememberCity, setRememberCity, handleSubmit, favoriteCities }) {
 
@@ -18,13 +19,7 @@ function SearchForm({ cityName, setCityName, rememberCity, setRememberCity, hand
 
   return (
     <form className="form-signin" onSubmit={handleSubmit}>
-      <h1 className="h3 font-weight-normal" style={{
-        fontSize: '2rem',
-        fontWeight: 'bold', 
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
-        color: '#333', 
-        marginBottom: '30px' 
-      }}>
+      <h1 className="h1-title" >
         Global Window
       </h1>
 
@@ -53,18 +48,18 @@ function SearchForm({ cityName, setCityName, rememberCity, setRememberCity, hand
 
       <button className="btn btn-primary btn-block" type="submit" style={{ marginTop: '20px' }}>Search</button>
 
-      {/* Use My Location button */}
+    
       <UserLocation setCityName={setCityName} />
 
-      {/* Display favorite cities below the search button */}
-      <div className="mt-5">
+     
+      <div className="mt-5"> {/* Short-circuit-evaluation */}
         {favoriteCities.length > 0 && (
           <>
            
             {favoriteCities.map((city, index) => (
               <button 
                 key={index} 
-                className="btn btn-block btn-sm cool-link" // Applying the same button styles
+                className="btn btn-block btn-sm cool-link" 
                 onClick={() => handleSelectFavoriteCity(city)}
                 style={{ marginBottom: '10px', marginRight:'5px' }}
               >
