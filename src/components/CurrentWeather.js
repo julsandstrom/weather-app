@@ -51,7 +51,7 @@ function CurrentWeather({ cityName, showNextFiveDays }) {
     };
 
    
-    fetchWeather(showNextFiveDays ? 5 : 1);
+    fetchWeather(showNextFiveDays ? 6 : 1);
   }, [cityName, showNextFiveDays]);
 
   const formatDate = (daysAhead) => {
@@ -73,12 +73,12 @@ function CurrentWeather({ cityName, showNextFiveDays }) {
   <h2 className="h3-title" >{cityName} |<small> Next 5 Days</small></h2>
   
   <ul className="forecast-list">
-    {dailyWeather.temperature_2m_max.map((maxTemp, index) => (
+    {dailyWeather.temperature_2m_max.slice(1, 6).map((maxTemp, index) => (
       <li key={index} className="forecast-item">
-        <span>{formatDate(index)}:</span> 
-        <span style={{ color: 'red' }}>Low {dailyWeather.temperature_2m_min[index]}°C</span> 
+        <span>{formatDate(index +1)}:</span> 
+        <span style={{ color: 'red' }}>Low {dailyWeather.temperature_2m_min[index +1]}°C</span> 
         <span style={{ color: 'green' }}>High {maxTemp}°C</span> 
-        <WeatherDetails weatherCode={dailyWeather.weathercode[index]} />
+        <WeatherDetails weatherCode={dailyWeather.weathercode[index + 1]} />
       </li>
     ))}
   </ul>
